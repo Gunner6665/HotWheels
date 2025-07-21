@@ -207,3 +207,29 @@ function mostrarDetalle(auto) {
 function cerrarModal() {
     document.getElementById('modal-detalle').style.display = 'none';
 }
+
+// === CÁMARA INTEGRADA ===
+const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const captureButton = document.getElementById('capture');
+
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+    .then(function(stream) {
+      video.srcObject = stream;
+      video.play();
+    })
+    .catch(function(err) {
+      console.error("Error al acceder a la cámara:", err);
+    });
+}
+
+captureButton.addEventListener('click', function() {
+  const context = canvas.getContext('2d');
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
+  const imageData = canvas.toDataURL('image/png');
+  localStorage.setItem('fotoCapturada', imageData);
+  alert("📷 Foto capturada y guardada en localStorage.");
+});

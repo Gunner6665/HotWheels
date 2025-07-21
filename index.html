@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-  <link rel="manifest" href="manifest.json">
+<link href="manifest.json" rel="manifest"/>
 <script>
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js')
@@ -8,23 +8,19 @@
       .catch(error => console.log('❌ Error SW:', error));
   }
 </script>
-
 <head>
-<link rel="icon" href="logo2.jpg" type="image/png"> 
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#f77f00">
-
-  <!-- Ícono 192x192 -->
-<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-
+<link href="logo2.jpg" rel="icon" type="image/png"/>
+<link href="manifest.json" rel="manifest"/>
+<meta content="#f77f00" name="theme-color"/>
+<!-- Ícono 192x192 -->
+<link href="icon-192.png" rel="icon" sizes="192x192" type="image/png"/>
 <!-- Ícono 512x512 -->
-<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HotWheels Collector</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
+<link href="icon-512.png" rel="icon" sizes="512x512" type="image/png"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HotWheels Collector</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
   body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 20px;
@@ -120,40 +116,39 @@ li button {
 </style>
 </head>
 <body>
-  
 <h1 style="text-align: center;">
-  <img src="logo2.jpg" alt="Hot Wheels Logo" style="height: 100px; vertical-align: middle;">
-  <br>Mi Colección HotWheels
+<img alt="Hot Wheels Logo" src="logo2.jpg" style="height: 100px; vertical-align: middle;"/>
+<br/>Mi Colección HotWheels
 </h1>
-
-  <input type="text" id="buscador" placeholder="Buscar auto por nombre o modelo...">
-
-  <form id="formulario">
-    <input type="text" id="nombre" placeholder="Nombre" required>
-    <input type="text" id="modelo" placeholder="Modelo" required>
-    <input type="number" id="anio" placeholder="Año" required>
-    <input type="color" id="color" title="Color del auto">
-    <input type="file" id="foto" accept="image/*">
-    <button type="submit">Agregar Auto</button>
-  </form>
-
-  <ul id="lista-autos"></ul>
-  <button id="exportar">📤 Exportar colección</button>
-  <input type="file" id="importar" accept=".json">
-
-  <script src="app.js"></script>
-  
+<input id="buscador" placeholder="Buscar auto por nombre o modelo..." type="text"/>
+<form id="formulario">
+<input id="nombre" placeholder="Nombre" required="" type="text"/>
+<input id="modelo" placeholder="Modelo" required="" type="text"/>
+<input id="anio" placeholder="Año" required="" type="number"/>
+<input id="color" title="Color del auto" type="color"/>
+<input accept="image/*" id="foto" type="file"/>
+<button type="submit">Agregar Auto</button>
+</form>
+<ul id="lista-autos"></ul>
+<button id="exportar">📤 Exportar colección</button>
+<input accept=".json" id="importar" type="file"/>
+<script src="app.js"></script>
 <!-- Modal para mostrar detalles del auto -->
 <div id="modal-detalle" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center;">
-  <div style="background:white; padding:20px; border-radius:10px; max-width:400px; width:90%; position:relative;">
-    <button onclick="cerrarModal()" style="position:absolute; top:10px; right:10px; background:#d62828; color:white; border:none; border-radius:50%; width:30px; height:30px;">✖</button>
-    <img id="modal-foto" src="" alt="Foto del auto" style="width:100%; border-radius:8px; margin-bottom:10px;">
-    <h2 id="modal-nombre"></h2>
-    <p><strong>Modelo:</strong> <span id="modal-modelo"></span></p>
-    <p><strong>Año:</strong> <span id="modal-anio"></span></p>
-    <p><strong>Color:</strong> <span id="modal-color"></span></p>
-  </div>
+<div style="background:white; padding:20px; border-radius:10px; max-width:400px; width:90%; position:relative;">
+<button onclick="cerrarModal()" style="position:absolute; top:10px; right:10px; background:#d62828; color:white; border:none; border-radius:50%; width:30px; height:30px;">✖</button>
+<img alt="Foto del auto" id="modal-foto" src="" style="width:100%; border-radius:8px; margin-bottom:10px;"/>
+<h2 id="modal-nombre"></h2>
+<p><strong>Modelo:</strong> <span id="modal-modelo"></span></p>
+<p><strong>Año:</strong> <span id="modal-anio"></span></p>
+<p><strong>Color:</strong> <span id="modal-color"></span></p>
+</div>
 </div>
 
+<div id="camera-container">
+<video autoplay="" id="video" playsinline=""></video>
+<button id="capture">📸 Tomar Foto</button>
+<canvas id="canvas" style="display:none;"></canvas>
+</div>
 </body>
 </html>
