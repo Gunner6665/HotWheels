@@ -208,10 +208,6 @@ function cerrarModal() {
     document.getElementById('modal-detalle').style.display = 'none';
 }
 
-// === CÁMARA INTEGRADA ===
-const video = document.getElementById('video');
-const canvas = document.getElementById('canvas');
-const captureButton = document.getElementById('capture');
 
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
@@ -224,12 +220,19 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     });
 }
 
-captureButton.addEventListener('click', function() {
+captureButton.addEventListener('click', function () {
   const context = canvas.getContext('2d');
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  context.drawImage(video, 0, 0, canvas.width, canvas.height);
-  const imageData = canvas.toDataURL('image/png');
+  const scaleWidth = 640;
+  const scaleHeight = 480;
+
+  canvas.width = scaleWidth;
+  canvas.height = scaleHeight;
+
+  context.drawImage(video, 0, 0, scaleWidth, scaleHeight);
+
+  const imageData = canvas.toDataURL('image/jpeg', 0.7); // Comprimir al 70%
   localStorage.setItem('fotoCapturada', imageData);
-  alert("📷 Foto capturada y guardada en localStorage.");
+
+  alert("📷 Foto capturada, comprimida y guardada.");
 });
+
