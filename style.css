@@ -1,0 +1,119 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    background: linear-gradient(to right, #ffe259, #ffa751);
+    color: #333;
+    max-width: 600px;
+    margin: auto;
+    transition: background 0.5s ease;
+}
+
+
+h1 {
+  text-align: center;
+  color: #d62828;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="color"],
+input[type="file"],
+input[type="search"],
+button {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #f77f00;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #d62828;
+}
+
+#buscador {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-left: 8px solid #f77f00;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+li img {
+  border-radius: 8px;
+  height: 60px;
+  width: auto;
+}
+
+li span {
+  flex-grow: 1;
+}
+
+li button {
+  margin-left: 5px;
+  font-size: 18px;
+  padding: 6px 10px;
+}
+
+
+form:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+li:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+}
+
+button {
+    background-color: #f77f00;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #d62828;
+    transform: scale(1.05);
+}
+
