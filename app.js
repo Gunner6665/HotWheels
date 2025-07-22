@@ -6,6 +6,10 @@ let autoEditando = null;
 
 function mostrarAutos() {
   lista.innerHTML = '';
+  
+  autos.sort((a, b) => a.nombre.localeCompare(b.nombre));
+  document.getElementById('contador-autos').textContent = `🏎️ Total de carritos: ${autos.length}`;
+
   autos.forEach((auto, index) => {
     const li = document.createElement('li');
     li.style.borderLeftColor = auto.color;
@@ -37,7 +41,7 @@ function mostrarAutos() {
       imagen.src = auto.foto;
       imagen.alt = "Foto del auto";
       imagen.style.width = "80px";
-      imagen.style.marginRight = "10px";
+      imagen.style.marginRight = "50px";
       li.prepend(imagen);
     }
 
@@ -198,7 +202,7 @@ function mostrarAutosFiltrados(listaFiltrada) {
       imagen.src = auto.foto;
       imagen.alt = "Foto del auto";
       imagen.style.width = "80px";
-      imagen.style.marginRight = "10px";
+      imagen.style.marginRight = "50px";
       li.prepend(imagen);
     }
 
